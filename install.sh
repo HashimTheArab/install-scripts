@@ -1,5 +1,5 @@
-while getopts "mongo:go" options; do
-    case ${options} in
+while getopts "mongo:go" option; do
+    case ${option} in
         mongo)
                 echo "Starting the installation of Mongo...\nAdding key\n\n"
                 sleep 2
@@ -30,7 +30,7 @@ while getopts "mongo:go" options; do
               echo "PATH=$PATH:/usr/local/go/bin" >> ~/.profile
               source ~/.profile
            ;;
-        \?)
+        ?)
             break
             ;;
     esac
