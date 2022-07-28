@@ -29,6 +29,7 @@ while getopts "mongo:go" options; do
               rm go1.18.4.linux-amd64.tar.gz
               echo "PATH=$PATH:/usr/local/go/bin" >> ~/.profile
               source ~/.profile
+           ;;
         \?)
             break
             ;;
