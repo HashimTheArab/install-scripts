@@ -1,6 +1,15 @@
-while getopts "mongo:go" option; do
+for arg in "$@"; do
+  shift
+  case ${arg} in
+    "-mongo") set -- "$@" "-m" ;;
+    "-go") set -- "$@" "-g" ;;
+    *)        set -- "$@" "$arg"
+  esac
+done
+
+while getopts "mg" option; do
     case ${option} in
-        mongo)
+        m)
                 echo "Starting the installation of Mongo...\nAdding key\n\n"
                 sleep 2
                 sudo apt-get install gnupg
@@ -22,7 +31,7 @@ while getopts "mongo:go" option; do
                     sudo systemctl start mongod
                 fi
             ;;
-        go)
+        g)
               echo "Starting the installation of GoLang\n"
               wget "https://go.dev/dl/go1.18.4.linux-amd64.tar.gz"
               sudo tar -C /usr/local -xzvf go1.18.4.linux-amd64.tar.gz
