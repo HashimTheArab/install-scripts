@@ -33,14 +33,14 @@ while getopts "mg" option; do
                 fi
             ;;
         z)
-                echo "Starting the installation of Mongo 4.0...\nAdding key\n\n"
+                echo "Starting the installation of Mongo 4.4...\nAdding key\n\n"
                 sleep 2
                 sudo apt-get install gnupg
-                wget -qO - https://www.mongodb.org/static/pgp/server-4.0.asc | sudo apt-key add -
+                wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
                 echo "\n\nCreating list file...\n\n"
                 sleep 2
-                touch /etc/apt/sources.list.d/mongodb-org-4.0.list
-                echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+                touch /etc/apt/sources.list.d/mongodb-org-4.4.list
+                echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
                 sleep 2
                 echo "\n\nUpdating Packages...\n\n"
                 sleep 2
