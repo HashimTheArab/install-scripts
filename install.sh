@@ -14,11 +14,11 @@ while getopts "mg" option; do
                 echo "Starting the installation of Mongo 6.0...\nAdding key\n\n"
                 sleep 2
                 sudo apt-get install gnupg
-                wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+                wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/server-6.0.gpg
                 echo "\n\nCreating list file...\n\n"
                 sleep 2
                 touch /etc/apt/sources.list.d/mongodb-org-6.0.list
-                echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+                echo "deb [ arch=amd64,arm64  signed-by=/usr/share/keyrings/server-6.0.gpg] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
                 sleep 2
                 echo "\n\nUpdating Packages...\n\n"
                 sleep 2
@@ -36,11 +36,11 @@ while getopts "mg" option; do
                 echo "Starting the installation of Mongo 4.4...\nAdding key\n\n"
                 sleep 2
                 sudo apt-get install gnupg
-                wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+                wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo gpg --dearmor -o /usr/share/keyrings/server-4.4.gpg
                 echo "\n\nCreating list file...\n\n"
                 sleep 2
                 touch /etc/apt/sources.list.d/mongodb-org-4.4.list
-                echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+                echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/server-4.4.gpg] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
                 sleep 2
                 echo "\n\nUpdating Packages...\n\n"
                 sleep 2
