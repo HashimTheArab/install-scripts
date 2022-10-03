@@ -59,8 +59,9 @@ while getopts "mg" option; do
               wget "https://go.dev/dl/go1.19.linux-amd64.tar.gz"
               sudo tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
               rm go1.19.linux-amd64.tar.gz
-              echo "PATH=$PATH:/usr/local/go/bin" >> ~/.profile
-              source ~/.profile
+              read -p "GoLang needs to be manually added to the path please enter the file that your terminal sources for login sessions (~/.bash_profile, ~/.zprofile, etc): " prof
+              echo "PATH=$PATH:/usr/local/go/bin" >> "$prof"
+              source "$prof"
            ;;
         ?)
             break
