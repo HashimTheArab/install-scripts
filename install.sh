@@ -55,10 +55,10 @@ while getopts "mg" option; do
                 fi
             ;;
         g)
-              echo "Starting the installation of GoLang 1.19\n"
-              wget "https://go.dev/dl/go1.19.linux-amd64.tar.gz"
-              sudo tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
-              rm go1.19.linux-amd64.tar.gz
+              echo "Starting the installation of GoLang 1.20.4\n"
+              wget "https://go.dev/dl/go1.20.4.linux-amd64.tar.gz"
+              sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
+              rm go1.20.4.linux-amd64.tar.gz
               read -p "GoLang needs to be manually added to the path please enter the file that your terminal sources for login sessions (~/.bash_profile, ~/.zprofile, etc): " prof
               echo "PATH=$PATH:/usr/local/go/bin" >> "$prof"
               source "$prof"
